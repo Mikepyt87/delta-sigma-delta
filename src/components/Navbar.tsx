@@ -1,27 +1,45 @@
-import React, { FC } from "react";
-import "./Navbar.css";
+import React, { useState } from "react";
+import "./NavBar.css";
 import deltSigCrest from "../assets/deltSigCrest.png";
 
-const Navbar: FC = () => {
+const NavBar: React.FC = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => setShowMenu(!showMenu);
+
   return (
-    <nav className="navbar">
+    <nav className="nav-bar">
       <div className="logo-container">
-        <img src={deltSigCrest} alt="deltSigCrest" className="deltSigCrest" />
-        <span className="logo-text">Delta Sigma Delta</span>
+        <img src={deltSigCrest} alt="Logo" className="logo" />
+        <h1 className="logo-text">Delta Sigma Delta</h1>
       </div>
-      <ul className="nav-links">
-        <li>
-          <a href="#">Home</a>
+      <div className="menu-icon" onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul className={`nav-menu ${showMenu && "show"}`}>
+        <li className="nav-item">
+          <a href="/">ABOUT</a>
         </li>
-        <li>
-          <a href="#">About</a>
+        <li className="nav-item">
+          <a href="/about">JOIN</a>
         </li>
-        <li>
-          <a href="#">Contact</a>
+        <li className="nav-item">
+          <a href="/services">MEMBERS</a>
+        </li>
+        <li className="nav-item">
+          <a href="/contact">GET INVOLVED</a>
+        </li>
+        <li className="nav-item">
+          <a href="/contact">FOUNDATION</a>
+        </li>
+        <li className="nav-item">
+          <a href="/contact">CONTACT</a>
         </li>
       </ul>
     </nav>
   );
 };
 
-export default Navbar;
+export default NavBar;

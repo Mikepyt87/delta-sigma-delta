@@ -1,61 +1,158 @@
-.navbar {
+@font-face {
+  font-family: "GFS Neohellenic", sans-serif;
+  src: url("/src/Fonts/GFSNeohellenic-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/src/Fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 4rem;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 0 2rem;
+  justify-content: space-between;
+  background-color: #333;
+  color: #fff;
+  padding: 2px;
 }
 
 .logo-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  padding-left: 5vw;
+  margin: 4px 0;
 }
 
-.deltSigCrest {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 1rem;
+.nav-bar .logo {
+  height: 73px;
 }
 
 .logo-text {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333333;
-  text-decoration: none;
-  margin-right: 1rem;
+  font-family: "GFS Neohellenic", sans-serif;
+  font-size: 2em;
+  margin-left: 2vw;
+  padding-left: 2vw;
 }
 
-.logo-text:hover {
-  color: #666666;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.nav-menu {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
   list-style: none;
   margin: 0;
+  padding-right: 6vw;
+  display: flex;
 }
 
-.nav-links li {
-  margin-left: 1.5rem;
+.nav-item {
+  margin-left: 10px;
 }
 
-.nav-links li:first-child {
+.nav-item:first-child {
   margin-left: 0;
 }
 
-.nav-links a {
-  color: #333333;
+.nav-item a {
+  color: #fff;
+  display: block;
+  padding: 10px;
   text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #666666;
+.nav-item a:hover {
+  background-color: #666;
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 50vw;
+    padding-left: 0;
+  }
+
+  .logo img {
+    height: 25px;
+  }
+  .logo-text {
+    margin: 0;
+    padding-left: 2vw;
+  }
+
+  .nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: absolute; /* Set position to absolute */
+    top: 11%; /* Position the menu below the nav bar */
+    right: 0; /* Align the menu with the left edge of the nav bar */
+    background-color: #333;
+    min-width: 200px; /* Set a minimum width for the menu */
+    display: none; /* Hide the menu by default */
+  }
+
+  .nav-menu.show {
+    display: flex; /* Display the menu when the show class is added */
+    flex-direction: column; /* Display the menu items in a column */
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .nav-item a {
+    padding: 10px 0;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .menu-icon span,
+  .menu-icon span:before,
+  .menu-icon span:after {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: transform 0.3s ease;
+  }
+
+  .menu-icon span:before {
+    transform: translateY(-8px);
+  }
+
+  .menu-icon span:after {
+    transform: translateY(8px);
+  }
+
+  .menu-icon.active span {
+    transform: rotate(45deg);
+  }
+
+  .menu-icon.active span:before {
+    transform: rotate(45deg) translate(5px, -5px);
+  }
+
+  .menu-icon.active span:after {
+    transform: rotate(45deg) translate(5px, -5px);
+  }
 }
