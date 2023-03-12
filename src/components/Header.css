@@ -10,13 +10,14 @@
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  background-color: #505050;
+  background-color: #4fb7d6;
   color: #fff;
   padding: 0 20px;
   margin-bottom: 1px;
 }
 
 .search {
+  font-family: "Montserrat", sans-serif;
   display: flex;
   align-items: center;
   padding-left: 3vw;
@@ -27,7 +28,11 @@
   padding: 0 10px;
   border: none;
   border-radius: 5px;
-  background-color: #3a3a3a;
+  background-color: #8b8b8b;
+  color: #fff;
+}
+
+.search input::placeholder {
   color: #fff;
 }
 
